@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import enhanceWithClickOutside from 'react-click-outside';
 import classnames from 'classnames';
 import { Trans, withTranslation } from 'react-i18next';
-import { SETTINGS_URLS, FILTERS_URLS, MENU_URLS } from '../../helpers/constants';
+import { SETTINGS_URLS, FILTERS_URLS, MENU_URLS, WORLD_URLS } from '../../helpers/constants';
 
 import Dropdown from '../ui/Dropdown';
 
@@ -81,6 +81,13 @@ const FILTERS_ITEMS = [
         text: 'custom_filtering_rules',
     },
 ];
+
+const WORLD_ITEMS = [
+    {
+        route:WORLD_URLS.world_map,
+        text:'world_map'
+    }
+]
 
 interface MenuProps {
     isMenuOpen: boolean;
@@ -175,6 +182,15 @@ class Menu extends Component<MenuProps> {
                                 icon: 'filters',
                                 URLS: FILTERS_URLS,
                                 ITEMS: FILTERS_ITEMS,
+                            })}
+                        </li>
+                        <li className="nav-item order-3">
+                            {this.getDropdown({
+                                order: 2,
+                                label: 'world',
+                                icon: 'world',
+                                URLS: WORLD_URLS,
+                                ITEMS: WORLD_ITEMS,
                             })}
                         </li>
                     </ul>

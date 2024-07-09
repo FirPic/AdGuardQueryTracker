@@ -156,6 +156,10 @@ export const FILTERS_URLS = {
     blocked_services: '/blocked_services',
 };
 
+export const WORLD_URLS = {
+    world_map:'/worldmap'
+}
+
 export const ENCRYPTION_SOURCE = {
     PATH: 'path',
     CONTENT: 'content',

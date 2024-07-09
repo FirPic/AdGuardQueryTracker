@@ -20,7 +20,7 @@ import Icons from '../ui/Icons';
 import i18n from '../../i18n';
 
 import Loading from '../ui/Loading';
-import { FILTERS_URLS, MENU_URLS, SETTINGS_URLS, THEMES } from '../../helpers/constants';
+import { FILTERS_URLS, MENU_URLS, SETTINGS_URLS, THEMES, WORLD_URLS } from '../../helpers/constants';
 
 import { getLogsUrlParams, setHtmlLangAttr, setUITheme } from '../../helpers/helpers';
 
@@ -42,6 +42,8 @@ import DnsRewrites from '../../containers/DnsRewrites';
 import CustomRules from '../../containers/CustomRules';
 
 import Services from '../Filters/Services';
+
+import WorldMap from '../World/WorldMap';
 
 import Logs from '../Logs';
 import ProtectionTimer from '../ProtectionTimer';
@@ -100,6 +102,10 @@ const ROUTES = [
     {
         path: FILTERS_URLS.blocked_services,
         component: Services,
+    },
+    {
+        path: WORLD_URLS.world_map,
+        component: WorldMap,
     },
 ];
 

@@ -28,3 +28,5 @@ coverage.txt
 node_modules/
 
 !/build/gitkeep
+
+.
