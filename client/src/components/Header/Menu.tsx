@@ -186,7 +186,7 @@ class Menu extends Component<MenuProps> {
                         </li>
                         <li className="nav-item order-3">
                             {this.getDropdown({
-                                order: 2,
+                                order: 3,
                                 label: 'world',
                                 icon: 'world',
                                 URLS: WORLD_URLS,
