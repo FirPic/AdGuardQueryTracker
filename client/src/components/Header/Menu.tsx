@@ -84,8 +84,8 @@ const FILTERS_ITEMS = [
 
 const WORLD_ITEMS = [
     {
-        route:WORLD_URLS.world_map,
-        text:'world_map'
+        route: WORLD_URLS.world_map,
+        text:'world_map',
     }
 ]
 
