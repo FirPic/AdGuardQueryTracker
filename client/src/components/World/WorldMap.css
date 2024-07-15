@@ -1,4 +1,4 @@
-div.worldmap {
+.world-map {
     width: 100%;
     height: 100%;
     display: flex;
@@ -6,7 +6,7 @@ div.worldmap {
     align-items: center;
 }
 
-div.worldmap svg.map {
+.world-map .map {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,6 +19,6 @@ div.worldmap svg.map {
     
 }
 
-div.worldmap svg.map:hover {
-
+.world-map .map:hover {
+    fill: red;
 }

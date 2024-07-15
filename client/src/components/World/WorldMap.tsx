@@ -1,9 +1,9 @@
 import React from 'react';
-import './World.css';
+import './WorldMap.css';
 
 const WorldMap = () => {
     return (
-        <div className="worldmap">
+        <div className="world-map">
             <svg
                 baseProfile="tiny"
                 fill="#9aa0ac"

@@ -86,6 +86,10 @@ const WORLD_ITEMS = [
     {
         route: WORLD_URLS.world_map,
         text:'world_map',
+    },
+    {
+        route: WORLD_URLS.world_list,
+        text:'world_list',
     }
 ]
 
@@ -184,7 +188,7 @@ class Menu extends Component<MenuProps> {
                                 ITEMS: FILTERS_ITEMS,
                             })}
                         </li>
-                        <li className="nav-item order-3">
+                        <li className="nav-item order-5">
                             {this.getDropdown({
                                 order: 3,
                                 label: 'world',

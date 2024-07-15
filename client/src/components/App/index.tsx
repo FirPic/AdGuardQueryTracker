@@ -44,10 +44,12 @@ import CustomRules from '../../containers/CustomRules';
 import Services from '../Filters/Services';
 
 import WorldMap from '../World/WorldMap';
+import WorldList from '../World/WorldList';
 
 import Logs from '../Logs';
 import ProtectionTimer from '../ProtectionTimer';
 import { RootState } from '../../initialState';
+
 
 const ROUTES = [
     {
@@ -106,6 +108,10 @@ const ROUTES = [
     {
         path: WORLD_URLS.world_map,
         component: WorldMap,
+    },
+    {
+        path: WORLD_URLS.world_list,
+        component: WorldList,
     },
 ];
 

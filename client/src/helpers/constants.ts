@@ -157,7 +157,8 @@ export const FILTERS_URLS = {
 };
 
 export const WORLD_URLS = {
-    world_map:'/worldmap'
+    world_map:'/worldmap',
+    world_list:'/worldlist'
 }
 
 export const ENCRYPTION_SOURCE = {

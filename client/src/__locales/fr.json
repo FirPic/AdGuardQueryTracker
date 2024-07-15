@@ -743,5 +743,8 @@
     "saturday_short": "Sam.",
     "upstream_dns_cache_configuration": "Configuration du cache DNS en amont",
     "enable_upstream_dns_cache": "Activer la mise en cache pour la configuration personnalisée du serveur en amont de ce client",
-    "dns_cache_size": "Taille du cache DNS, en bytes"
+    "dns_cache_size": "Taille du cache DNS, en bytes",
+    "world":"Monde",
+    "world_map":"Carte du monde",
+    "world_list":"Liste du Monde"
 }
