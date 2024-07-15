@@ -746,5 +746,6 @@
     "dns_cache_size": "DNS cache size, in bytes",
     "world":"World",
     "world_map":"World Map",
-    "world_list":"World List"
+    "world_list":"World List",
+    "world_graph":"World Graph"
 }

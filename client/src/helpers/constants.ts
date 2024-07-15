@@ -158,7 +158,8 @@ export const FILTERS_URLS = {
 
 export const WORLD_URLS = {
     world_map:'/worldmap',
-    world_list:'/worldlist'
+    world_list:'/worldlist',
+    world_graph:'/world_graph'
 }
 
 export const ENCRYPTION_SOURCE = {

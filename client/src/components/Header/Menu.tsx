@@ -90,6 +90,10 @@ const WORLD_ITEMS = [
     {
         route: WORLD_URLS.world_list,
         text:'world_list',
+    },
+    {
+        route: WORLD_URLS.world_graph,
+        text:'world_graph',
     }
 ]
 

@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "d3-scale": "^4.0.2",
+    "esprima": "^4.0.1",
+    "glob": "^11.0.0",
     "react-simple-maps": "^3.0.0"
   }
 }

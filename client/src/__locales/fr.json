@@ -746,5 +746,6 @@
     "dns_cache_size": "Taille du cache DNS, en bytes",
     "world":"Monde",
     "world_map":"Carte du monde",
-    "world_list":"Liste du Monde"
+    "world_list":"Liste du Monde",
+    "world_graph":"Graphique du Monde"
 }

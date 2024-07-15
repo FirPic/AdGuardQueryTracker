@@ -1,7 +1,42 @@
 import React from 'react';
 import './WorldMap.css';
+import apiClient from '../../api/Api';
 
-const WorldMap = () => {
+
+async function getLogsLast30Days() {
+    try {
+        // Date actuelle
+        const currentDate = new Date();
+
+        // Date il y a 30 jours
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(currentDate.getDate() - 30);
+
+        // Préparez les paramètres pour l'appel à l'API
+        const params = {
+            start_date: thirtyDaysAgo.toISOString(), // Convertir en format ISO pour être sûr de la compatibilité avec l'API
+            end_date: currentDate.toISOString(),
+            limit: 100, // Par exemple, vous pouvez spécifier un nombre maximal de logs à récupérer
+            offset: 0, // Vous pouvez ajuster l'offset si nécessaire pour pagination
+            // D'autres paramètres selon les besoins de votre API
+        };
+
+        // Appel à l'API pour récupérer les logs
+        const logs = await apiClient.getQueryLog(params);
+
+        console.log('Logs des 30 derniers jours :', logs);
+        return logs;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des logs :', error);
+        throw error; // Gérer l'erreur ou la relancer selon votre logique
+    }
+}
+
+const WorldMap =  () => {
+
+
+    console.log(getLogsLast30Days());
+
     return (
         <div className="world-map">
             <svg
