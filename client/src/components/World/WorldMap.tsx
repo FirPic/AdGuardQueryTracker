@@ -1,42 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './WorldMap.css';
 import apiClient from '../../api/Api';
 
+const older = 30;
 
-async function getLogsLast30Days() {
+const fetchUrlLogs = async () => {
     try {
-        // Date actuelle
-        const currentDate = new Date();
+        const nowDate = new Date();
+        const olderDate = new Date(nowDate.setDate(nowDate.getDate() - older)).toISOString();
 
-        // Date il y a 30 jours
-        const thirtyDaysAgo = new Date();
-        thirtyDaysAgo.setDate(currentDate.getDate() - 30);
+        const url = window.location.protocol + '//' + window.location.hostname;
+        const apiUrl = `${url}/control/querylog?older_than=${olderDate}`;
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-        // Préparez les paramètres pour l'appel à l'API
-        const params = {
-            start_date: thirtyDaysAgo.toISOString(), // Convertir en format ISO pour être sûr de la compatibilité avec l'API
-            end_date: currentDate.toISOString(),
-            limit: 100, // Par exemple, vous pouvez spécifier un nombre maximal de logs à récupérer
-            offset: 0, // Vous pouvez ajuster l'offset si nécessaire pour pagination
-            // D'autres paramètres selon les besoins de votre API
-        };
-
-        // Appel à l'API pour récupérer les logs
-        const logs = await apiClient.getQueryLog(params);
-
-        console.log('Logs des 30 derniers jours :', logs);
-        return logs;
+        console.log(`URL :`, data); // Affiche les données récupérées
     } catch (error) {
-        console.error('Erreur lors de la récupération des logs :', error);
-        throw error; // Gérer l'erreur ou la relancer selon votre logique
+        console.error('Erreur lors de la récupération des logs via URL :', error);
     }
-}
-
-const WorldMap =  () => {
+};
 
 
-    console.log(getLogsLast30Days());
+const fetchApiLogs = async () => {
+    try {
+        const nowDate = new Date();
+        const olderDate = new Date(nowDate.setDate(nowDate.getDate() - older)).toISOString();
 
+        const params = {
+            older_than: olderDate,
+        };
+        const data = await apiClient.getQueryLog(params); // Attend la résolution de la promesse
+
+        console.log(`API :`, data); // Affiche les données récupérées
+    } catch (error) {
+        console.error('Erreur lors de la récupération des logs via API :', error);
+    }
+};
+
+
+const WorldMap = () => {
+    fetchApiLogs();
+    fetchUrlLogs();
     return (
         <div className="world-map">
             <svg
@@ -50,7 +54,7 @@ const WorldMap =  () => {
                 version="1.2"
                 viewBox="0 0 2000 857"
                 width="100vh"
-                id='map'
+                id="map"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M1383 261.6l1.5 1.8-2.9 0.8-2.4 1.1-5.9 0.8-5.3 1.3-2.4 2.8 1.9 2.7 1.4 3.2-2 2.7 0.8 2.5-0.9 2.3-5.2-0.2 3.1 4.2-3.1 1.7-1.4 3.8 1.1 3.9-1.8 1.8-2.1-0.6-4 0.9-0.2 1.7-4.1 0-2.3 3.7 0.8 5.4-6.6 2.7-3.9-0.6-0.9 1.4-3.4-0.8-5.3 1-9.6-3.3 3.9-5.8-1.1-4.1-4.3-1.1-1.2-4.1-2.7-5.1 1.6-3.5-2.5-1 0.5-4.7 0.6-8 5.9 2.5 3.9-0.9 0.4-2.9 4-0.9 2.6-2-0.2-5.1 4.2-1.3 0.3-2.2 2.9 1.7 1.6 0.2 3 0 4.3 1.4 1.8 0.7 3.4-2 2.1 1.2 0.9-2.9 3.2 0.1 0.6-0.9-0.2-2.6 1.7-2.2 3.3 1.4-0.1 2 1.7 0.3 0.9 5.4 2.7 2.1 1.5-1.4 2.2-0.6 2.5-2.9 3.8 0.5 5.4 0z"
