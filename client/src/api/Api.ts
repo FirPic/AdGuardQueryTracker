@@ -592,14 +592,11 @@ class Api {
     getQueryLog(params: any) {
         const { path, method } = this.GET_QUERY_LOG;
         // eslint-disable-next-line no-param-reassign
-        console.log(`1 : ${JSON.stringify(params)}`);
         if (params.limit === 0) {
             delete params['limit'];
         } else if (params.limit === undefined) {
             params.limit = QUERY_LOGS_PAGE_LIMIT;
         }
-
-        console.log(`2 : ${JSON.stringify(params)}`);
 
         const url = getPathWithQueryString(path, params);
 
@@ -694,6 +691,13 @@ class Api {
         const { path, method } = this.CLEAR_CACHE;
 
         return this.makeRequest(path, method);
+    }
+
+    // CORS redirection
+    async useCORS(url:string, params: any) {
+        const request = getPathWithQueryString(url, params);
+        const result = await axios.get(request)
+        return result;
     }
 }
 

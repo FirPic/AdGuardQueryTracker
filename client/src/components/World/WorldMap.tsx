@@ -1,70 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './WorldMap.css';
-import apiClient from '../../api/Api';
-
-async function getInterval() {
-    // Remplacez ceci par votre méthode réelle pour obtenir l'intervalle
-    // Supposons qu'elle retourne une promesse qui se résout en un nombre
-    const queryLogConfig = await apiClient.getQueryLogConfig();
-    return queryLogConfig.interval;
-}
-
-async function fetchApiLogs() {
-    let older = 30;
-
-    try {
-        // Attendre la résolution de la promesse pour obtenir l'intervalle
-        const interval = await getInterval();
-
-        // Utiliser l'intervalle pour déterminer la valeur de 'older'
-        switch (Number(interval)) {
-            case 7776000000:
-                older = 90;
-                break;
-            case 2592000000:
-                older = 30;
-                break;
-            case 604800000:
-                older = 7;
-                break;
-            case 86400000:
-                older = 1;
-                break;
-            default:
-                older = 30;
-                break;
-        }
-
-        // Calculer la date 'older'
-        const nowDate = new Date();
-        const olderDate = new Date(nowDate.getTime() - older * 24 * 60 * 60 * 1000).toISOString();
-
-        let params = {
-            older_than: olderDate,
-            limit: 0,
-        };
-
-        console.log(`0 : ${JSON.stringify(params)}`);
-        // Appeler l'API pour obtenir les logs
-        const data = await apiClient.getQueryLog(params);
-
-        // Afficher les données récupérées
-        console.log('API :', data);
-
-        // Retourner les données sous la forme attendue
-        return {
-            data: data,
-            older: olderDate,
-        };
-    } catch (error) {
-        // Gérer les erreurs
-        console.error('Erreur lors de la récupération des logs via API :', error);
-    }
-}
-
-fetchApiLogs();
+import { countRequestsByCountry, Log } from './ProcessWorld';
 
 const WorldMap = () => {
+    const [logs, setLogs] = useState<Log[]>([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const countryCounts = await countRequestsByCountry();
+            console.log(countryCounts);
+            
+            setLogs(countryCounts);
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="world-map">
             <svg
