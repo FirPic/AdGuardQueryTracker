@@ -1,18 +1,30 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import './WorldMap.css';
-import { countRequestsByCountry, Log } from './ProcessWorld';
+import { countRequestsByCountry, Log } from './WordlBack';
+import { getInfoByIP } from './WebScraper';
+
 
 const WorldMap = () => {
-    const [logs, setLogs] = useState<Log[]>([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            const countryCounts = await countRequestsByCountry();
-            console.log(countryCounts);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // const [logs, setLogs] = useState<Log[]>([]);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const countryCounts = await countRequestsByCountry();
+    //         console.log(countryCounts);
             
-            setLogs(countryCounts);
-        };
-        fetchData();
-    }, []);
+    //         setLogs(countryCounts);
+    //     };
+    //     fetchData();
+    // }, []);
+
+    (async () => {
+        const content = 'Some content here';
+        console.log(`scraper content : ${content}`);
+    
+        const ipInfo = await getInfoByIP('271.160.76.117');
+        console.log(`scraper return : ${JSON.stringify(ipInfo)}`);
+    })();
 
     return (
         <div className="world-map">

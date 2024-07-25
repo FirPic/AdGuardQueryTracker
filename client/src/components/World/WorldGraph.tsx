@@ -1,5 +1,5 @@
 import React from 'react';
-import 'WorldGraph.css'
+import './WorldGraph.css'
 
 const WorldGraph = () => {
     return (
