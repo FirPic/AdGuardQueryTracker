@@ -32,23 +32,34 @@ require (
 	github.com/stretchr/testify v1.9.0
 	github.com/ti-mo/netfilter v0.5.2
 	go.etcd.io/bbolt v1.3.10
-	golang.org/x/crypto v0.24.0
+	golang.org/x/crypto v0.25.0
 	golang.org/x/exp v0.0.0-20240604190554-fc45aab8b7f8
-	golang.org/x/net v0.26.0
-	golang.org/x/sys v0.21.0
+	golang.org/x/net v0.27.0
+	golang.org/x/sys v0.22.0
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 	gopkg.in/yaml.v3 v3.0.1
 	howett.net/plist v1.0.1
 )
 
+require github.com/gocolly/colly v1.2.0
+
 require (
+	github.com/PuerkitoBio/goquery v1.9.2 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/aead/poly1305 v0.0.0-20180717145839-3fee0db0b635 // indirect
 	github.com/ameshkov/dnsstamps v1.0.3 // indirect
+	github.com/andybalholm/cascadia v1.3.2 // indirect
+	github.com/antchfx/htmlquery v1.3.2 // indirect
+	github.com/antchfx/xmlquery v1.4.1 // indirect
+	github.com/antchfx/xpath v1.3.1 // indirect
 	github.com/beefsack/go-rate v0.0.0-20220214233405-116f4ca011a0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
+	github.com/gobwas/glob v0.2.3 // indirect
+	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
+	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/pprof v0.0.0-20240521024322-9665fa269a30 // indirect
+	github.com/kennygrant/sanitize v1.2.4 // indirect
 	github.com/mdlayher/socket v0.5.1 // indirect
 	github.com/onsi/ginkgo/v2 v2.17.3 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
@@ -56,6 +67,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/quic-go/qpack v0.4.0 // indirect
+	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d // indirect
+	github.com/temoto/robotstxt v1.1.2 // indirect
 	github.com/u-root/uio v0.0.0-20240224005618-d2acac8f3701 // indirect
 	go.uber.org/mock v0.4.0 // indirect
 	golang.org/x/mod v0.18.0 // indirect
@@ -63,4 +76,6 @@ require (
 	golang.org/x/text v0.16.0 // indirect
 	golang.org/x/tools v0.22.0 // indirect
 	gonum.org/v1/gonum v0.15.0 // indirect
+	google.golang.org/appengine v1.6.8 // indirect
+	google.golang.org/protobuf v1.34.2 // indirect
 )
