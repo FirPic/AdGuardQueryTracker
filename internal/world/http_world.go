@@ -10,7 +10,7 @@ import (
 )
 
 // RegisterHandlers enregistre les gestionnaires d'API pour la catégorie World.
-func (w *World) RegisterHandlers() {
+func (w *World) RegisterWorldHandlers() {
     if w.conf.HTTPRegister == nil {
         return
     }
